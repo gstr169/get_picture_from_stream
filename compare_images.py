@@ -19,4 +19,4 @@ def compare_two_images(image_path_1: str, image_path_2: str):
 
 
 data_folder = Path("tmp/img")
-file_path = data_folder / "201809231759.avi_0.jpg"
+file_path = data_folder / "201809231759_0.jpg"

@@ -1,4 +1,5 @@
 import cv2
+import os
 from pathlib import Path
 
 
@@ -15,8 +16,7 @@ def get_image_from_video(video_path: str, images_number: int):
 
 
 data_folder = Path("tmp")
-file_path = data_folder / "201809231759.avi"
-get_image_from_video(str(file_path), 1)
-
-
-
+for file_name in os.listdir(str(data_folder)):
+    file_path = data_folder / file_name
+    if os.path.isfile(file_path):
+        get_image_from_video(str(file_path), 1)
