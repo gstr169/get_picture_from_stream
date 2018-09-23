@@ -9,7 +9,7 @@ def get_image_from_video(video_path: str, images_number: int):
     for i in range(images_number):
         success, image = video_cap.read()
         img_folder = Path(video_folder) / 'img'
-        img_name = video_name + ('_%d.jpg' % i)
+        img_name = video_name.replace('.avi', ('_%d.jpg' % i))
         img_path = img_folder / img_name
         cv2.imwrite(str(img_path), image)     # save frame as JPEG file
 

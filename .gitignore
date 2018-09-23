@@ -117,3 +117,5 @@ pyvenv.cfg
 .venv
 pip-selfcheck.json
 .idea/
+/tmp/img/
+/tmp/
