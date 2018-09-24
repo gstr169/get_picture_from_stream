@@ -10,13 +10,21 @@ def get_image_from_video(video_path: str, images_number: int):
     for i in range(images_number):
         success, image = video_cap.read()
         img_folder = Path(video_folder) / 'img'
+        if not img_folder.exists():
+            img_folder.mkdir()
         img_name = video_name.replace('.avi', ('_%d.jpg' % i))
         img_path = img_folder / img_name
-        cv2.imwrite(str(img_path), image)     # save frame as JPEG file
+        cv2.imwrite(str(img_path), image)  # save frame as JPEG file
 
 
-data_folder = Path("tmp")
-for file_name in os.listdir(str(data_folder)):
-    file_path = data_folder / file_name
-    if os.path.isfile(file_path):
-        get_image_from_video(str(file_path), 1)
+def get_images_from_folder(video_folder: str):
+    data_folder = Path(video_folder)
+    for file_name in os.listdir(str(data_folder)):
+        file_path = data_folder / file_name
+        if os.path.isfile(file_path):
+            print(file_path)
+            get_image_from_video(str(file_path), 1)
+
+
+get_images_from_folder('D:/Python Projects/get_picture_from_stream/tmp_cam_1')
+get_images_from_folder('D:/Python Projects/get_picture_from_stream/tmp_cam_2')
